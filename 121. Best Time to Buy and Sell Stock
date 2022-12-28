@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int minValue = prices[0];
+        int answer = 0;
+        
+        for (int price : prices) {
+            minValue = (minValue > price) ? price : minValue;
+            answer = (price - minValue > answer) ? price - minValue : answer;
+        }
+
+        return answer;
+    }
+};
