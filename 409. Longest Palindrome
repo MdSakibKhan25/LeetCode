@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        int length = (int) s.size();
+        map<int, int> chars;
+        for(int i = 0; i < length; i++) chars[s[i]]++;
+        int counter = 0, oddExists = 0;
+        for(auto &it: chars) {
+            counter += it.second;
+            if(it.second % 2 == 1) {
+                oddExists = 1;
+                counter--; 
+            }
+        }
+        return counter + oddExists;
+    }
+};
